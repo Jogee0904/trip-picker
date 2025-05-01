@@ -23,9 +23,10 @@
     }
     .hero-img {
       width: 100%;
-      max-height: 220px;
+      max-height: 240px;
       object-fit: contain;
       margin-bottom: 1.5rem;
+      border-radius: 18px;
     }
     h1 {
       font-size: 2rem;
@@ -62,11 +63,11 @@
 </head>
 <body>
   <div class="container">
-    <img class="hero-img" src="https://i.imgur.com/6KX0U8M.png" alt="trip illustration">
-    <h1>🎒 Trip Picker</h1>
+    <img class="hero-img" src="https://i.imgur.com/wv1QHlt.png" alt="trip cat illustration">
+    <h1>🐾 Trip Picker</h1>
     <button onclick="addPlace()">➕ 新增地點</button>
     <button onclick="drawPlace()">🎯 抽出地點</button>
-    <button onclick="showList()">📋 剩餘地點</button>
+    <button onclick="showList()">📋 備選地點</button>
     <div id="result"></div>
   </div>
 
@@ -101,7 +102,7 @@
         document.getElementById('result').innerText = `🎯 抽中的地點是：\n${result.place}`;
         liff.shareTargetPicker([{ type: 'text', text: `🎯 我們抽中了：${result.place}` }]);
       } else {
-        document.getElementById('result').innerText = '📭 地點清單為空';
+        document.getElementById('result').innerText = '📭 備選地點已清空';
       }
     }
 
@@ -112,7 +113,7 @@
         document.getElementById('result').innerText = '✅ 所有地點都已抽完！';
       } else {
         const names = list.map(row => row[0]).join('\n');
-        document.getElementById('result').innerText = `📋 剩餘地點如下：\n${names}`;
+        document.getElementById('result').innerText = `📋 備選地點如下：\n${names}`;
       }
     }
 
